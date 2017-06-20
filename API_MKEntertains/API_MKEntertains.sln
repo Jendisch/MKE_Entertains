@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MKEntertains", "MKEntertains\MKEntertains.csproj", "{7906B0A3-3A8D-423A-9769-980545E63CBE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MKEDealsAccess", "MKEDealsAccess\MKEDealsAccess.csproj", "{12C5630A-A9E3-436B-81C0-0ED17BD23A6E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7906B0A3-3A8D-423A-9769-980545E63CBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7906B0A3-3A8D-423A-9769-980545E63CBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7906B0A3-3A8D-423A-9769-980545E63CBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7906B0A3-3A8D-423A-9769-980545E63CBE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12C5630A-A9E3-436B-81C0-0ED17BD23A6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12C5630A-A9E3-436B-81C0-0ED17BD23A6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12C5630A-A9E3-436B-81C0-0ED17BD23A6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12C5630A-A9E3-436B-81C0-0ED17BD23A6E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
