@@ -1,0 +1,74 @@
+﻿@model IEnumerable<FoodDrinkDataAccess.Deal>
+@using System.Collections.Generic;
+@using System.Web.Script.Serialization;
+@using Newtonsoft.Json;
+
+@{
+    ViewBag.Title = "About";
+}
+
+<style>
+
+
+
+</style>
+
+<h2>Deals For @DateTime.Now.DayOfWeek.ToString()</h2>
+<h3>So many to choose from!</h3>
+<p>If you'd like to plan ahead and view deals in advance please register & create an account!</p>
+<div align="right">
+    @Html.ActionLink("Toggle To Entertainment List", "EntertainmentList", "List", new { @class = "btn btn-primary" })
+</div>
+<br />
+
+
+<table class="table">
+    <tr>
+
+        <th style="width:10%; text-align:center; vertical-align:middle">
+            <center>Name</center>
+        </th>
+        <th style="width:15%; text-align:center; vertical-align:middle">
+            <center>Location</center>
+        </th>
+        <th style="width:35%; text-align:center; vertical-align:middle">
+            <center>Deal</center>
+        </th>
+        <th style="width:10%; text-align:center; vertical-align:middle">
+            <center>Time</center>
+        </th>
+        <th style="width:15%; text-align:center; vertical-align:middle">
+            <center>Phone Number</center>
+        </th>
+        <th style="width:15%; text-align:center; vertical-align:middle">
+            <center>Click To View Yelp Reviews</center>
+        </th>
+    </tr>
+
+    @foreach (var item in Model.OrderBy(a => a.Location.Name))
+    {
+        <tr>
+            <td style="width:10%; text-align:center; vertical-align:middle">
+                <center>@item.Location.Name</center>
+            </td>
+            <td style="width:15%; text-align:center; vertical-align:middle">
+                <center>@item.Location.StreetAddress</center>
+            </td>
+            <td style="width:35%; text-align:center; vertical-align:middle">
+                <center>@item.Deal1</center>
+            </td>
+            <td style="width:10%; text-align:center; vertical-align:middle">
+                <center>@item.TimeConstraint</center>
+            </td>
+            <td style="width:15%; text-align:center; vertical-align:middle">
+                <center>@item.Location.PhoneNumber</center>
+            </td>
+            <td style="width:15%; text-align:center; vertical-align:middle">
+                @*Fix this button to go to Yelp*@
+                <bold><center>@Html.ActionLink("Yelp Reviews", "ChargeClient", "RouteMap", new { id = item.Id }, new { @class = "btn btn-default" })</center></bold>
+            </td>
+        </tr>
+    }
+
+</table>
+

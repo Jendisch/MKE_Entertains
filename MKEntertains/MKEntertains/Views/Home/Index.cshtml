@@ -1,0 +1,155 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>MKEntertains</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <style>
+        #first 
+        {
+            background: url("../../Content/Photos/MKEShoes.JPG") 50% 0 repeat fixed;
+            min-height: 1000px;
+            height: 1000px;
+            margin: 0 auto;
+            width: 100%;
+            max-width: 1920px;
+            position: relative;
+        }
+
+        #first article 
+        {
+            height: 458px;
+            position: absolute;
+            text-align: center;
+            top: 150px;
+            width: 100%;
+        }
+
+        #second 
+        {
+            background: #272b30;
+            min-height: 600px;
+            height: 600px;
+            margin: 0 auto;
+            width: 100%;
+            max-width: 1920px;
+            position: relative;
+            -webkit-box-shadow: 0 0 50px rgba(0,0,0,0.8);
+            box-shadow: 0 0 50px rgba(0,0,0,0.8);
+        }
+
+        #second article 
+        {
+            height: 300px;
+            position: absolute;
+            text-align: center;
+            top: 150px;
+            width: 100%;
+        }
+
+        #third 
+        {
+            background: url("../../Content/Photos/MKEDemo.jpg") 50% 0 repeat fixed;
+            min-height: 1000px;
+            height: 1000px;
+            margin: 0 auto;
+            width: 100%;
+            max-width: 1920px;
+            position: relative;
+            -webkit-box-shadow: 0 0 50px rgba(0,0,0,0.8);
+            box-shadow: 0 0 50px rgba(0,0,0,0.8);
+        }
+
+        #third article 
+        {
+            height: 458px;
+            position: absolute;
+            text-align: center;
+            top: 150px;
+            width: 100%;
+        }
+
+        .jumbotron 
+        {
+            height: 500px;
+            color: white;
+            text-shadow: #444 0 5px 5px;
+            background: transparent;
+            border: none;
+        }
+
+        div.columns
+        { 
+            width: 100%; 
+
+        }
+        div.columns div   
+        { 
+            width: 50%; 
+            height: 458px; 
+            float: left; 
+            padding-right: 45px;
+            padding-left: 45px;
+            text-shadow: #444 0 4px 4px;
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+            $('section[data-type="background"]').each(function () {
+                var $bgobj = $(this); // assigning the object
+
+                $(window).scroll(function () {
+                    var yPos = -($window.scrollTop() / $bgobj.data('speed'));
+
+                    // Put together our final background position
+                    var coords = '50% ' + yPos + 'px';
+
+                    // Move the background
+                    $bgobj.css({ backgroundPosition: coords });
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+
+    <section id="first" data-type="background" data-speed="10">
+        <article>
+            <div class="jumbotron">
+                <h1>MKEntertains</h1>
+                <br />
+                <h3>Milwaukee's Best Entertainment - On a Budget</h3>
+            </div>
+        </article>
+    </section>
+
+    <section id="second" data-type="background" data-speed="10">
+        <article>
+            <div class="columns">
+                <div class="span6">
+                    <h2>So What's This About?</h2>
+                    <br />
+                    <p>
+                        Milwaukee is one of the most up and coming cities in America. Housing complexes are going up everywhere and businesses are booming along with the housing industry.
+                    </p>
+                    <p>
+                        People want to live here. They want to know where the deals are and they want to know whats going on after dinner. Festivals and concerts and other indoor activities are everywhere. MKEntertains is a one stop shop for everything you need to plan a weekday night out in MKE.
+                    </p>
+                </div>
+                <div class="span6">
+                    <h2>How To Get More...</h2>
+                    <br />
+                    <p>
+                        It's simple. Create an account!
+                    </p>
+                </div>
+            </div>
+        </article>
+    </section>
+
+    <section id="third" data-type="background" data-speed="10">
+        <article>I am absolute positioned</article>
+    </section>
+
+
+</body>
+</html>
