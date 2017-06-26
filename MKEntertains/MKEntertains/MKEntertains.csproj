@@ -44,6 +44,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DealDataAccess, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Bin\DealDataAccess.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.0.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
       <Private>True</Private>
@@ -295,6 +299,24 @@
     <Content Include="Views\Map\MemberFoodMap.cshtml" />
     <Content Include="Views\List\MemberEntertainmentList.cshtml" />
     <Content Include="Views\List\MemberFoodList.cshtml" />
+    <Content Include="Views\Map\FoodMapDayPlusOne.cshtml" />
+    <Content Include="Views\Map\FoodMapDayPlusTwo.cshtml" />
+    <Content Include="Views\Map\FoodMapDayPlusThree.cshtml" />
+    <Content Include="Views\Map\FoodMapDayPlusFour.cshtml" />
+    <Content Include="Views\Map\FoodMapDayPlusFive.cshtml" />
+    <Content Include="Views\Map\FoodMapDayPlusSix.cshtml" />
+    <Content Include="Views\Map\FoodMapDayPlusSeven.cshtml" />
+    <Content Include="Views\Map\WeekendViewPlanAhead.cshtml" />
+    <Content Include="Views\Map\EntertainmentMapDayPlusOne.cshtml" />
+    <Content Include="Views\Map\EntertainmentMapDayPlusTwo.cshtml" />
+    <Content Include="Views\Map\EntertainmentMapDayPlusThree.cshtml" />
+    <Content Include="Views\Map\EntertainmentMapDayPlusFour.cshtml" />
+    <Content Include="Views\Map\EntertainmentMapDayPlusFive.cshtml" />
+    <Content Include="Views\Map\EntertainmentMapDayPlusSix.cshtml" />
+    <Content Include="Views\Map\EntertainmentMapDayPlusSeven.cshtml" />
+    <Content Include="Views\Map\WeekendView.cshtml" />
+    <Content Include="Views\Map\MemberFoodWeekendView.cshtml" />
+    <Content Include="Views\Map\MemberEntertainmentWeekendView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

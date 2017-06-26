@@ -1,0 +1,51 @@
+﻿@model IEnumerable<EntertainmentDataAccess.Event>
+@using System.Collections.Generic;
+@using Newtonsoft.Json;
+
+@{
+    ViewBag.Title = DateTime.Now.DayOfWeek.ToString();
+    ViewBag.DayPlusOne = DateTime.Now.AddDays(1).DayOfWeek.ToString();
+    ViewBag.DayPlusTwo = DateTime.Now.AddDays(2).DayOfWeek.ToString();
+    ViewBag.DayPlusThree = DateTime.Now.AddDays(3).DayOfWeek.ToString();
+    ViewBag.DayPlusFour = DateTime.Now.AddDays(4).DayOfWeek.ToString();
+    ViewBag.DayPlusFive = DateTime.Now.AddDays(5).DayOfWeek.ToString();
+    ViewBag.DayPlusSix = DateTime.Now.AddDays(6).DayOfWeek.ToString();
+    ViewBag.DayPlusSeven = DateTime.Now.AddDays(7).DayOfWeek.ToString();
+}
+
+<meta charset="UTF-8">
+<title>MKEnterains</title>
+
+<meta name="description" content="Entertainment Application">
+<meta name="keywords" content="MKE Milwaukee Entertainment">
+<meta name="author" content="Jendisch">
+
+<style>
+    .homeText {
+        color: white;
+    }
+</style>
+
+<div class="homeText">
+    <br />
+    <h2>We specialize in weekday fun here...</h2>
+    <br />
+</div>
+<br />
+<center>
+    <h3>Take a Look Ahead</h3>
+    <div>
+        <input type="button" class="btn btn-default" value="@ViewBag.DayPlusOne" onclick="location.href='@Url.Action("EntertainmentMapDayPlusOne", "Map")'" />
+        <input type="button" class="btn btn-default" value="@ViewBag.DayPlusTwo" onclick="location.href='@Url.Action("EntertainmentMapDayPlusTwo", "Map")'" />
+        <input type="button" class="btn btn-default" value="@ViewBag.DayPlusThree" onclick="location.href='@Url.Action("EntertainmentMapDayPlusThree", "Map")'" />
+        <input type="button" class="btn btn-default" value="@ViewBag.DayPlusFour" onclick="location.href='@Url.Action("EntertainmentMapDayPlusFour", "Map")'" />
+        <input type="button" class="btn btn-default" value="@ViewBag.DayPlusFive" onclick="location.href='@Url.Action("EntertainmentMapDayPlusFive", "Map")'" />
+        <input type="button" class="btn btn-default" value="@ViewBag.DayPlusSix" onclick="location.href='@Url.Action("EntertainmentMapDayPlusSix", "Map")'" />
+        <input type="button" class="btn btn-default" value="@ViewBag.DayPlusSeven" onclick="location.href='@Url.Action("EntertainmentMapDayPlusSeven", "Map")'" />
+    </div>
+</center>
+<br />
+<div align="right">
+    @Html.ActionLink("Toggle To Food/Drink Specials Map", "MemberFoodtMap", "Map", new { @class = "btn btn-primary" })
+</div>
+<br />

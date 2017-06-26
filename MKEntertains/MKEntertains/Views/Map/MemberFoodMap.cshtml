@@ -4,7 +4,15 @@
 
 @{
     ViewBag.Title = DateTime.Now.DayOfWeek.ToString();
+    ViewBag.DayPlusOne = DateTime.Now.AddDays(1).DayOfWeek.ToString();
+    ViewBag.DayPlusTwo = DateTime.Now.AddDays(2).DayOfWeek.ToString();
+    ViewBag.DayPlusThree = DateTime.Now.AddDays(3).DayOfWeek.ToString();
+    ViewBag.DayPlusFour = DateTime.Now.AddDays(4).DayOfWeek.ToString();
+    ViewBag.DayPlusFive = DateTime.Now.AddDays(5).DayOfWeek.ToString();
+    ViewBag.DayPlusSix = DateTime.Now.AddDays(6).DayOfWeek.ToString();
+    ViewBag.DayPlusSeven = DateTime.Now.AddDays(7).DayOfWeek.ToString();
 }
+
 
 <meta charset="UTF-8">
 <title>MKEnterains</title>
@@ -31,51 +39,83 @@
 <div class="homeText">
     <br />
     <h2>It's a @ViewBag.Title night.</h2>
-    <h3>Where to eat or grab a drink on a budget? You Decide.</h3>
-    <p>If you'd like to plan ahead and view deals in advance please register & create an account!</p>
+
+    @if (ViewBag.Title == "Saturday" || ViewBag.Title == "Sunday")
+    {
+        <h3>We focus on week day fun here! Click around below to check out deals on a future day.</h3>
+    }
+    else
+    {
+        <h3>Where to eat or grab a drink on a budget? You Decide.</h3>
+    }
+</div>
+    <br />
+    <center>
+        <h3>Take a Look Ahead</h3>
+        <div>
+            <input type="button" class="btn btn-default" value="@ViewBag.DayPlusOne" onclick="location.href='@Url.Action("FoodMapDayPlusOne", "Map")'" />
+            <input type="button" class="btn btn-default" value="@ViewBag.DayPlusTwo" onclick="location.href='@Url.Action("FoodMapDayPlusTwo", "Map")'" />
+            <input type="button" class="btn btn-default" value="@ViewBag.DayPlusThree" onclick="location.href='@Url.Action("FoodMapDayPlusThree", "Map")'" />
+            <input type="button" class="btn btn-default" value="@ViewBag.DayPlusFour" onclick="location.href='@Url.Action("FoodMapDayPlusFour", "Map")'" />
+            <input type="button" class="btn btn-default" value="@ViewBag.DayPlusFive" onclick="location.href='@Url.Action("FoodMapDayPlusFive", "Map")'" />
+            <input type="button" class="btn btn-default" value="@ViewBag.DayPlusSix" onclick="location.href='@Url.Action("FoodMapDayPlusSix", "Map")'" />
+            <input type="button" class="btn btn-default" value="@ViewBag.DayPlusSeven" onclick="location.href='@Url.Action("FoodMapDayPlusSeven", "Map")'" />
+        </div>
+    </center>
+    <br />
     <div align="right">
-        @Html.ActionLink("Toggle To Entertainment Map", "EntertainmentMap", "Map", new { @class = "btn btn-primary" })
+        @Html.ActionLink("Toggle To Entertainment Map", "MemberEntertainmentMap", "Map", new { @class = "btn btn-primary" })
     </div>
     <br />
 
-
-    <center><div id="map"></div></center>
-
-    @foreach (var item in Model)
+    @if (ViewBag.Title == "Saturday" || ViewBag.Title == "Sunday")
     {
-        <div class="modal fade" id="myModal-@(item.Id)" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-                        <center>
-                            <h2 class="modal-title" id="myModalLabel">@item.Location.Name</h2>
-                        </center>
-                    </div>
-                    <div class="modal-body">
-                        <center>
-                            <h3>
-                                @item.TimeConstraint
-                                <br />
-                                @item.Deal1
-                            </h3>
-                            <h4>
-                                @item.Location.StreetAddress<br />
-                                @item.Location.City, @item.Location.State @item.Location.ZipCode
-                                <br />
-                                Phone Number: @item.Location.PhoneNumber
-                            </h4>
-                        </center>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+        <div></div>
+    }
+    else
+    {
+        <center><div id="map"></div></center>
+
+        foreach (var item in Model)
+        {
+            <div class="modal fade" id="myModal-@(item.Id)" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                            <center>
+                                <h2 class="modal-title" id="myModalLabel">@item.Location.Name</h2>
+                            </center>
+                        </div>
+                        <div class="modal-body">
+                            <center>
+                                <h3>
+                                    @item.TimeConstraint
+                                    <br />
+                                    @item.Deal1
+                                </h3>
+                                <h4>
+                                    @item.Location.StreetAddress<br />
+                                    @item.Location.City, @item.Location.State @item.Location.ZipCode
+                                    <br />
+                                    Phone Number: @item.Location.PhoneNumber
+                                </h4>
+                            </center>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        }
     }
 
-</div>
+
+
+
+
+    
 
 <script>
     var jsonInfo = @Html.Raw(JsonConvert.SerializeObject(Model, Formatting.Indented,

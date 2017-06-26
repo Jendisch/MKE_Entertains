@@ -4,6 +4,13 @@
 
 @{
     ViewBag.Title = DateTime.Now.DayOfWeek.ToString();
+    ViewBag.DayPlusOne = DateTime.Now.AddDays(1).DayOfWeek.ToString();
+    ViewBag.DayPlusTwo = DateTime.Now.AddDays(2).DayOfWeek.ToString();
+    ViewBag.DayPlusThree = DateTime.Now.AddDays(3).DayOfWeek.ToString();
+    ViewBag.DayPlusFour = DateTime.Now.AddDays(4).DayOfWeek.ToString();
+    ViewBag.DayPlusFive = DateTime.Now.AddDays(5).DayOfWeek.ToString();
+    ViewBag.DayPlusSix = DateTime.Now.AddDays(6).DayOfWeek.ToString();
+    ViewBag.DayPlusSeven = DateTime.Now.AddDays(7).DayOfWeek.ToString();
 }
 
 <meta charset="UTF-8">
@@ -30,23 +37,51 @@
 
 <div class="homeText">
     <br />
-    <h2>
-        @ViewBag.Title nights can be fun too.
-    </h2>
-    <h3>
-        Take a look at this list view of events in Milwaukee near you!
-    </h3>
-    <p>If you'd like to plan ahead and view entertainment in advance please register & create an account!</p>
-    <div align="right">
-        @Html.ActionLink("Toggle To Restaurant/Bar Map", "FoodMap", "Map", new { @class = "btn btn-primary" })
-    </div>
-    <br />
+    <h2>It's a @ViewBag.Title night.</h2>
 
+    @if (ViewBag.Title == "Saturday" || ViewBag.Title == "Sunday")
+    {
+        <h3>We focus on week day fun here! Click around below to check out deals on a future day.</h3>
+    }
+    else
+    {
+        <h3>
+            Take a look at all of events in Milwaukee near you!
+        </h3>
+    }
+</div>
+
+
+<br />
+<center>
+    <h3>Take a Look Ahead</h3>
+    <div>
+        <input type="button" class="btn btn-default" value="@ViewBag.DayPlusOne" onclick="location.href='@Url.Action("EntertainmentMapDayPlusOne", "Map")'" />
+        <input type="button" class="btn btn-default" value="@ViewBag.DayPlusTwo" onclick="location.href='@Url.Action("EntertainmentMapDayPlusTwo", "Map")'" />
+        <input type="button" class="btn btn-default" value="@ViewBag.DayPlusThree" onclick="location.href='@Url.Action("EntertainmentMapDayPlusThree", "Map")'" />
+        <input type="button" class="btn btn-default" value="@ViewBag.DayPlusFour" onclick="location.href='@Url.Action("EntertainmentMapDayPlusFour", "Map")'" />
+        <input type="button" class="btn btn-default" value="@ViewBag.DayPlusFive" onclick="location.href='@Url.Action("EntertainmentMapDayPlusFive", "Map")'" />
+        <input type="button" class="btn btn-default" value="@ViewBag.DayPlusSix" onclick="location.href='@Url.Action("EntertainmentMapDayPlusSix", "Map")'" />
+        <input type="button" class="btn btn-default" value="@ViewBag.DayPlusSeven" onclick="location.href='@Url.Action("EntertainmentMapDayPlusSeven", "Map")'" />
+    </div>
+</center>
+<br />
+<div align="right">
+    @Html.ActionLink("Toggle To Food/Drink Specials Map", "MemberFoodMap", "Map", new { @class = "btn btn-primary" })
+</div>
+<br />
+
+@if (ViewBag.Title == "Saturday" || ViewBag.Title == "Sunday")
+{
+    <div></div>
+}
+else
+{
     <center><div id="map"></div></center>
 
-    @foreach (var item in Model)
+    foreach (var item in Model)
     {
-        <div class="modal fade" id="myModal-@(@item.Id)" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal fade" id="myModal-@(item.Id)" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -77,8 +112,7 @@
             </div>
         </div>
     }
-
-</div>
+}
 
 <script>
     var jsonInfo = @Html.Raw(JsonConvert.SerializeObject(Model, Formatting.Indented,
@@ -90,7 +124,7 @@
         function initMap() {
 
             var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 14,
+                zoom: 16,
                 //center: { lat: 43.034, lng: -87.911 }
             });
 
@@ -152,3 +186,4 @@
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB75pBB0awnpqlNbscw8mhSvoRJdnIIQEA&callback=initMap"
         async defer></script>
+
