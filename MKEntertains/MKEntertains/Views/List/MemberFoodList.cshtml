@@ -1,4 +1,4 @@
-﻿@model IEnumerable<FoodDrinkDataAccess.Deal>
+﻿@model IEnumerable<RestaurantDealsDataAccess.Deal>
 @using System.Collections.Generic;
 @using System.Web.Script.Serialization;
 @using Newtonsoft.Json;
@@ -64,8 +64,7 @@
                 <center>@item.Location.PhoneNumber</center>
             </td>
             <td style="width:15%; text-align:center; vertical-align:middle">
-                @*Fix this button to go to Yelp*@
-                <bold><center>@Html.ActionLink("Yelp Reviews", "ChargeClient", "RouteMap", new { id = item.Id }, new { @class = "btn btn-default" })</center></bold>
+                <bold><center>@Html.ActionLink("Yelp Reviews", "FoodYelpInfo", "List", new { latitude = item.Location.Latitude, longitude = item.Location.Longitude, name = item.Location.Name, phoneNumber = item.Location.PhoneNumber }, new { @class = "btn btn-default" })</center></bold>
             </td>
         </tr>
     }

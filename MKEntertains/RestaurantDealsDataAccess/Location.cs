@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace FoodDrinkDataAccess
+namespace RestaurantDealsDataAccess
 {
     using System;
     using System.Collections.Generic;
@@ -29,6 +29,7 @@ namespace FoodDrinkDataAccess
         public string PhoneNumber { get; set; }
         public double Latitude { get; set; }
         public double Longitude { get; set; }
+        public string YelpNumber { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Deal> Deals { get; set; }

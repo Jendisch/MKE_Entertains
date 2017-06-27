@@ -44,10 +44,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DealDataAccess, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Bin\DealDataAccess.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.0.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
       <Private>True</Private>
@@ -81,6 +77,14 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="RapidAPISDK, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\RapidAPISDK.1.0.6\lib\net452\RapidAPISDK.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -142,11 +146,16 @@
       <Private>True</Private>
       <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="Yelp.Api, Version=1.2.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Yelp.Api.1.2.4\lib\portable45-net45+win8+wpa81\Yelp.Api.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="YelpSharper, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\YelpSharper.1.0.1\lib\net40\YelpSharper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -204,6 +213,7 @@
     <Compile Include="Controllers\ListController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MapController.cs" />
+    <Compile Include="Controllers\ScheduleController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -215,10 +225,16 @@
     <Compile Include="Migrations\201706221642392_Seeding Users.Designer.cs">
       <DependentUpon>201706221642392_Seeding Users.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706271735298_SeedScheduleInApplicationUser.cs" />
+    <Compile Include="Migrations\201706271735298_SeedScheduleInApplicationUser.Designer.cs">
+      <DependentUpon>201706271735298_SeedScheduleInApplicationUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Schedule.cs" />
+    <Compile Include="Models\YelpAPIClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -226,10 +242,11 @@
     <Content Include="Content\bootstrap-slate.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\Photos\MKEBeach.jpg" />
-    <Content Include="Content\Photos\MKEDemo.jpg" />
-    <Content Include="Content\Photos\MKEEngagement.JPG" />
-    <Content Include="Content\Photos\MKEShoes.jpg" />
+    <Content Include="Content\Images\MKEBeach.jpg" />
+    <Content Include="Content\Images\MKEDemo.jpg" />
+    <Content Include="Content\Images\MKEEngagement.JPG" />
+    <Content Include="Content\Images\MKEShoes.jpg" />
+    <Content Include="Content\Images\Yelp.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -317,6 +334,9 @@
     <Content Include="Views\Map\WeekendView.cshtml" />
     <Content Include="Views\Map\MemberFoodWeekendView.cshtml" />
     <Content Include="Views\Map\MemberEntertainmentWeekendView.cshtml" />
+    <Content Include="Views\List\FoodYelpInfo.cshtml" />
+    <Content Include="Views\List\EntertainmentYelpInfo.cshtml" />
+    <Content Include="Views\Schedule\PlanAhead.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -336,15 +356,18 @@
     <EmbeddedResource Include="Migrations\201706221642392_Seeding Users.resx">
       <DependentUpon>201706221642392_Seeding Users.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706271735298_SeedScheduleInApplicationUser.resx">
+      <DependentUpon>201706271735298_SeedScheduleInApplicationUser.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DealDataAccess\FoodDrinkDataAccess.csproj">
-      <Project>{3E5ED62E-C723-4981-A198-64A028121FA6}</Project>
-      <Name>FoodDrinkDataAccess</Name>
-    </ProjectReference>
     <ProjectReference Include="..\EntertainmentDataAccess\EntertainmentDataAccess.csproj">
       <Project>{8C4F4D75-1696-4D3D-8E57-19E6011B455C}</Project>
       <Name>EntertainmentDataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RestaurantDealsDataAccess\RestaurantDealsDataAccess.csproj">
+      <Project>{f9be7159-0cc7-4aa7-a806-98ef17b9a812}</Project>
+      <Name>RestaurantDealsDataAccess</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

@@ -28,6 +28,7 @@
           <Property Name="PhoneNumber" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Latitude" Type="float" Nullable="false" />
           <Property Name="Longitude" Type="float" Nullable="false" />
+          <Property Name="YelpNumber" Type="varchar" MaxLength="12" />
         </EntityType>
         <Association Name="FK__Deal__LocationId__164452B1">
           <End Role="Location" Type="Self.Location" Multiplicity="1" />
@@ -78,6 +79,7 @@
           <Property Name="PhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Latitude" Type="Double" Nullable="false" />
           <Property Name="Longitude" Type="Double" Nullable="false" />
+          <Property Name="YelpNumber" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Deals" Relationship="Self.FK__Deal__LocationId__164452B1" FromRole="Location" ToRole="Deal" />
         </EntityType>
         <Association Name="FK__Deal__LocationId__164452B1">
@@ -129,6 +131,7 @@
                 <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
                 <ScalarProperty Name="Latitude" ColumnName="Latitude" />
                 <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+                <ScalarProperty Name="YelpNumber" ColumnName="YelpNumber" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

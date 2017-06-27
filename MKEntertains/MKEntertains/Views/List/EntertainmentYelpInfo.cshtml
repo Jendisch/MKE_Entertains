@@ -1,0 +1,61 @@
+﻿@model BusinessResponse
+@using Yelp.Api.Models;
+@{
+    ViewBag.Title = "YelpInfo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .yelpImage {
+        max-width: 100%;
+    }
+</style>
+
+
+<br />
+<img class="yelpImage" align="left" src="~/Content/Images/Yelp.jpg" />
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+@if (User.IsInRole("Client"))
+{
+    <div align="left">
+        @Html.ActionLink("Go Back", "MemberEntertainmentList", "List", new { @class = "btn btn-primary" })
+    </div>
+}
+else
+{
+    <div align="left">
+        @Html.ActionLink("Go Back", "EntertainmentList", "List", new { @class = "btn btn-primary" })
+    </div>
+}
+<br />
+<div>
+    <h2>@Model.Name</h2>
+</div>
+<br />
+<div>
+    <h4>
+        Yelp users have rated this establishment @Model.Rating out of 5 stars.
+    </h4>
+    <h5>
+        This rating is based on @Model.ReviewCount user reviews.
+    </h5>
+</div>
+<br />
+<div>
+    <h4>
+        If you'd like to go to the official yelp site for @Model.Name, the link is available below.
+    </h4>
+    <p>
+        <a href="@Model.Url">Go to Yelp</a>
+    </p>
+</div>

@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{3E5ED62E-C723-4981-A198-64A028121FA6}</ProjectGuid>
+    <ProjectGuid>{F9BE7159-0CC7-4AA7-A806-98EF17B9A812}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DealDataAccess</RootNamespace>
-    <AssemblyName>DealDataAccess</AssemblyName>
+    <RootNamespace>RestaurantDealsDataAccess</RootNamespace>
+    <AssemblyName>RestaurantDealsDataAccess</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -52,51 +52,51 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Deal.cs">
-      <DependentUpon>FoodDrinkDataModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="FoodDrinkDataModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>FoodDrinkDataModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="FoodDrinkDataModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>FoodDrinkDataModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="FoodDrinkDataModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>FoodDrinkDataModel.edmx</DependentUpon>
+      <DependentUpon>RestaurantDealsDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Location.cs">
-      <DependentUpon>FoodDrinkDataModel.tt</DependentUpon>
+      <DependentUpon>RestaurantDealsDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RestaurantDealsDataModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RestaurantDealsDataModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RestaurantDealsDataModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RestaurantDealsDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RestaurantDealsDataModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RestaurantDealsDataModel.edmx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EntityDeploy Include="FoodDrinkDataModel.edmx">
+    <EntityDeploy Include="RestaurantDealsDataModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>FoodDrinkDataModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>RestaurantDealsDataModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
-    <None Include="FoodDrinkDataModel.edmx.diagram">
-      <DependentUpon>FoodDrinkDataModel.edmx</DependentUpon>
-    </None>
     <None Include="packages.config" />
+    <None Include="RestaurantDealsDataModel.edmx.diagram">
+      <DependentUpon>RestaurantDealsDataModel.edmx</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="FoodDrinkDataModel.Context.tt">
+    <Content Include="RestaurantDealsDataModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>FoodDrinkDataModel.Context.cs</LastGenOutput>
-      <DependentUpon>FoodDrinkDataModel.edmx</DependentUpon>
+      <LastGenOutput>RestaurantDealsDataModel.Context.cs</LastGenOutput>
+      <DependentUpon>RestaurantDealsDataModel.edmx</DependentUpon>
     </Content>
-    <Content Include="FoodDrinkDataModel.tt">
+    <Content Include="RestaurantDealsDataModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>FoodDrinkDataModel.edmx</DependentUpon>
-      <LastGenOutput>FoodDrinkDataModel.cs</LastGenOutput>
+      <DependentUpon>RestaurantDealsDataModel.edmx</DependentUpon>
+      <LastGenOutput>RestaurantDealsDataModel.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>

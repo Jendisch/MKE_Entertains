@@ -1,4 +1,4 @@
-﻿using FoodDrinkDataAccess;
+﻿using RestaurantDealsDataAccess;
 using EntertainmentDataAccess;
 using System;
 using System.Collections.Generic;
@@ -13,7 +13,7 @@ namespace MKEntertains.Controllers
         MKERestaurantDealsEntities dealsDB = new MKERestaurantDealsEntities();
         MKEEntertainmentEntities entertainDB = new MKEEntertainmentEntities();
 
-        // GET: Map
+       
         public ActionResult FoodMap()
         {
             string today = DateTime.Now.DayOfWeek.ToString();

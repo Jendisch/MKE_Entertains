@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace FoodDrinkDataAccess
+namespace RestaurantDealsDataAccess
 {
     using System;
     using System.Collections.Generic;

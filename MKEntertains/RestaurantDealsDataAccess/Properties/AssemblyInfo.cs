@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("DealDataAccess")]
+[assembly: AssemblyTitle("RestaurantDealsDataAccess")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("HP Inc.")]
-[assembly: AssemblyProduct("DealDataAccess")]
+[assembly: AssemblyProduct("RestaurantDealsDataAccess")]
 [assembly: AssemblyCopyright("Copyright © HP Inc. 2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("3e5ed62e-c723-4981-a198-64a028121fa6")]
+[assembly: Guid("f9be7159-0cc7-4aa7-a806-98ef17b9a812")]
 
 // Version information for an assembly consists of the following four values:
 //
