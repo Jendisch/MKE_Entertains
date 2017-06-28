@@ -10,8 +10,8 @@ namespace MKEntertains.Controllers
 {
     public class MapController : Controller
     {
-        MKERestaurantDealsEntities dealsDB = new MKERestaurantDealsEntities();
-        MKEEntertainmentEntities entertainDB = new MKEEntertainmentEntities();
+        private MKERestaurantDealsEntities dealsDB = new MKERestaurantDealsEntities();
+        private MKEEntertainmentEntities entertainDB = new MKEEntertainmentEntities();
 
        
         public ActionResult FoodMap()

@@ -230,6 +230,26 @@
     <Compile Include="Migrations\201706271735298_SeedScheduleInApplicationUser.Designer.cs">
       <DependentUpon>201706271735298_SeedScheduleInApplicationUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706281445283_AddDescriptionToScheduleColumns.cs" />
+    <Compile Include="Migrations\201706281445283_AddDescriptionToScheduleColumns.Designer.cs">
+      <DependentUpon>201706281445283_AddDescriptionToScheduleColumns.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706281650025_UpdateUserSchedules.cs" />
+    <Compile Include="Migrations\201706281650025_UpdateUserSchedules.Designer.cs">
+      <DependentUpon>201706281650025_UpdateUserSchedules.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706281651421_EditIDToStringSchedule.cs" />
+    <Compile Include="Migrations\201706281651421_EditIDToStringSchedule.Designer.cs">
+      <DependentUpon>201706281651421_EditIDToStringSchedule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706281859530_SetKeyToInt.cs" />
+    <Compile Include="Migrations\201706281859530_SetKeyToInt.Designer.cs">
+      <DependentUpon>201706281859530_SetKeyToInt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706281903057_USERIDREQUIRED.cs" />
+    <Compile Include="Migrations\201706281903057_USERIDREQUIRED.Designer.cs">
+      <DependentUpon>201706281903057_USERIDREQUIRED.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -337,9 +357,11 @@
     <Content Include="Views\Map\MemberEntertainmentWeekendView.cshtml" />
     <Content Include="Views\List\FoodYelpInfo.cshtml" />
     <Content Include="Views\List\EntertainmentYelpInfo.cshtml" />
-    <Content Include="Views\Schedule\PlanAhead.cshtml" />
     <Content Include="Views\Schedule\Index.cshtml" />
     <Content Include="Views\PlanAhead\Index.cshtml" />
+    <Content Include="Views\PlanAhead\ConfirmPlanAheadSuccessful.cshtml" />
+    <Content Include="Views\PlanAhead\SomethingWentWrongIndex.cshtml" />
+    <Content Include="Views\Schedule\DisplaySavedNightsOut.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -361,6 +383,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706271735298_SeedScheduleInApplicationUser.resx">
       <DependentUpon>201706271735298_SeedScheduleInApplicationUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706281445283_AddDescriptionToScheduleColumns.resx">
+      <DependentUpon>201706281445283_AddDescriptionToScheduleColumns.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706281650025_UpdateUserSchedules.resx">
+      <DependentUpon>201706281650025_UpdateUserSchedules.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706281651421_EditIDToStringSchedule.resx">
+      <DependentUpon>201706281651421_EditIDToStringSchedule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706281859530_SetKeyToInt.resx">
+      <DependentUpon>201706281859530_SetKeyToInt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706281903057_USERIDREQUIRED.resx">
+      <DependentUpon>201706281903057_USERIDREQUIRED.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

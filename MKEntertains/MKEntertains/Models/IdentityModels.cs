@@ -4,6 +4,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace MKEntertains.Models
 {
@@ -11,9 +13,8 @@ namespace MKEntertains.Models
     public class ApplicationUser : IdentityUser
     {
 
-        [ForeignKey("Schedule")]
-        public int ScheduleId;
-        public virtual Schedule schedule { get; set; }
+        
+        public virtual ICollection<Schedule> schedules { get; set; }
 
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)

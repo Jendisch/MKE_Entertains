@@ -17,7 +17,7 @@ namespace MKEntertains.Controllers
         {
             string userId = User.Identity.GetUserId();
             ApplicationUser currentUser = userDB.Users.Find(userId);
-            if (currentUser.schedule == null)
+            if (currentUser.schedules.Count < 1)
             {
                 return View("Index", currentUser);
             }
@@ -26,5 +26,15 @@ namespace MKEntertains.Controllers
                 return View("DisplaySavedNightsOut", currentUser);
             }
         }
+
+        public ActionResult DisplaySavedNightsOut()
+        {
+            string userId = User.Identity.GetUserId();
+            ApplicationUser currentUser = userDB.Users.Find(userId);
+
+            return View(currentUser);
+        }
+
+
     }
 }

@@ -1,0 +1,58 @@
+﻿@model MKEntertains.Models.ApplicationUser
+@using System.Collections;
+@using System.Collections.Generic;
+@{
+    ViewBag.Title = "Your MKEntertains History";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>@ViewBag.Title.</h1>
+<h3>The morning of your planned night out you should receive an email reminder.</h3>
+<br />
+
+
+<table class="table">
+    <tr>
+        <th style="width:10%; text-align:center; vertical-align:middle">
+            <center>Date</center>
+        </th>
+        <th style="width:30%; text-align:center; vertical-align:middle">
+            <center>Restaurant/Bar Location</center>
+        </th>
+        <th style="width:30%; text-align:center; vertical-align:middle">
+            <center>Entertainment Location</center>
+        </th>
+        <th style="width:30%; text-align:center; vertical-align:middle">
+            <center>Description</center>
+        </th>
+    </tr>
+
+    @foreach (var item in Model.schedules)
+    {
+        <tr>
+            <td style="width:10%; text-align:center; vertical-align:middle">
+                <center>@item.MKEntertainDate.Value.DayOfWeek</center>
+                <center>@item.MKEntertainDate.Value.Month-@item.MKEntertainDate.Value.Day-@item.MKEntertainDate.Value.Year</center>
+            </td>
+            <td style="width:30%; text-align:center; vertical-align:middle">
+                <center>@item.FoodDrinkChoice</center>
+            </td>
+            <td style="width:30%; text-align:center; vertical-align:middle">
+                <center>@item.EntertainmentChoice</center>
+            </td>
+            @if (item.Description == null)
+            {
+                <td style="width:30%; text-align:center; vertical-align:middle">
+                    <center>--No Description Given--</center>
+                </td>
+            }
+            else
+            {
+                <td style="width:30%; text-align:center; vertical-align:middle">
+                    <center>@item.Description</center>
+                </td>
+            }
+        </tr>
+    }
+
+</table>

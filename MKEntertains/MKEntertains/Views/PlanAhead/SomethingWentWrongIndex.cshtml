@@ -1,15 +1,16 @@
 ﻿@model MKEntertains.Models.Schedule
-@using System.Collections;
-@using System.Collections.Generic;
 @{
     ViewBag.Title = "Plan Ahead!";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <style>
-    .groupColor
-    {
+    .groupColor {
         color: #272b30;
+    }
+
+    .red {
+        color: red;
     }
 </style>
 
@@ -28,25 +29,32 @@
 </center>
 
 <br />
+<center>
+    <div class="red">
+        <h4>
+            Something went wrong with your previous plan ahead request. Please try again.
+        </h4>
+    </div>
+</center>
 
 @using (Html.BeginForm("Index", "PlanAhead", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
     @Html.AntiForgeryToken()
     <hr />
     @Html.HiddenFor(m => m.Id);
-        <div class="form-group">
-            @Html.LabelFor(m => m.MKEntertainDate, new { @class = "col-md-2 control-label" })
-            <div class="col-md-10">
-                @Html.EditorFor(m => m.MKEntertainDate, new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.MKEntertainDate)
-            </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.MKEntertainDate, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.EditorFor(m => m.MKEntertainDate, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.MKEntertainDate)
         </div>
-        <div class="form-group">
-            @Html.LabelFor(m => m.FoodDrinkChoice, new { @class = "col-md-2 control-label" })
-            <div class="groupColor col-md-10">
-                @Html.DropDownList("FoodDrinkChoice", new SelectList(ViewBag.dealsList), " Food/Drink Location ")
-            </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.FoodDrinkChoice, new { @class = "col-md-2 control-label" })
+        <div class="groupColor col-md-10">
+            @Html.DropDownList("FoodDrinkChoice", new SelectList(ViewBag.dealsList), " Food/Drink Location ")
         </div>
+    </div>
         <div class="form-group">
             @Html.LabelFor(m => m.EntertainmentChoice, new { @class = "col-md-2 control-label" })
             <div class="groupColor col-md-10">
@@ -62,9 +70,7 @@
         </div>
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" class="btn btn-default " value="Submit" />
+                <input type="submit" class="btn btn-default" value="Submit" />
             </div>
         </div>
 }
-
-

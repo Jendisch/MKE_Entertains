@@ -12,8 +12,8 @@ namespace MKEntertains.Controllers
 {
     public class ListController : Controller
     {
-        MKERestaurantDealsEntities dealsDB = new MKERestaurantDealsEntities();
-        MKEEntertainmentEntities entertainDB = new MKEEntertainmentEntities();
+        private MKERestaurantDealsEntities dealsDB = new MKERestaurantDealsEntities();
+        private MKEEntertainmentEntities entertainDB = new MKEEntertainmentEntities();
         YelpAPIClient yelp = new YelpAPIClient();
         public string rating;
 
