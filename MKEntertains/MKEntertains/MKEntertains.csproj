@@ -44,6 +44,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="mailgun_csharp, Version=0.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\mailgun_csharp.0.6.0.0\lib\net45\mailgun_csharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="mailgun_csharp.AspNet.Identity, Version=0.6.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\mailgun_csharp.AspNet.Identity.0.6.0\lib\net45\mailgun_csharp.AspNet.Identity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.0.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
       <Private>True</Private>
@@ -362,6 +370,7 @@
     <Content Include="Views\PlanAhead\ConfirmPlanAheadSuccessful.cshtml" />
     <Content Include="Views\PlanAhead\SomethingWentWrongIndex.cshtml" />
     <Content Include="Views\Schedule\DisplaySavedNightsOut.cshtml" />
+    <Content Include="Views\PlanAhead\ConfirmEmailSent.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
