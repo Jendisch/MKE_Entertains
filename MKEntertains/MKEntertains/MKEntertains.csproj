@@ -213,6 +213,7 @@
     <Compile Include="Controllers\ListController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MapController.cs" />
+    <Compile Include="Controllers\PlanAheadController.cs" />
     <Compile Include="Controllers\ScheduleController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -337,6 +338,8 @@
     <Content Include="Views\List\FoodYelpInfo.cshtml" />
     <Content Include="Views\List\EntertainmentYelpInfo.cshtml" />
     <Content Include="Views\Schedule\PlanAhead.cshtml" />
+    <Content Include="Views\Schedule\Index.cshtml" />
+    <Content Include="Views\PlanAhead\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

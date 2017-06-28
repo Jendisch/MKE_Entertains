@@ -37,8 +37,10 @@
 
 <div class="homeText">
     <br />
-    <h2>It's a @ViewBag.Title night.</h2>
-
+    <h1>Entertainment Options For @DateTime.Now.DayOfWeek.ToString().</h1>
+    <h3>
+        @ViewBag.Title nights can be fun too.
+    </h3>
     @if (ViewBag.Title == "Saturday" || ViewBag.Title == "Sunday")
     {
         <h3>We focus on week day fun here! Click around below to check out deals on a future day.</h3>

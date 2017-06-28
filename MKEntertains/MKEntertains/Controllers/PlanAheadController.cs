@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace MKEntertains.Controllers
 {
-    public class ScheduleController : Controller
+    public class PlanAheadController : Controller
     {
 
         private ApplicationDbContext userDB = new ApplicationDbContext();
@@ -17,14 +17,8 @@ namespace MKEntertains.Controllers
         {
             string userId = User.Identity.GetUserId();
             ApplicationUser currentUser = userDB.Users.Find(userId);
-            if (currentUser.schedule == null)
-            {
-                return View("Index", currentUser);
-            }
-            else
-            {
-                return View("DisplaySavedNightsOut", currentUser);
-            }
+
+            return View("Index", currentUser);
         }
     }
 }
