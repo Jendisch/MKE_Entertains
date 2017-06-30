@@ -6,65 +6,148 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<style>
-    .groupColor
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MKEntertains</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <style>
+        #first {
+            background: url("../../Content/Images/MKEStage.jpg") 50% 0 repeat fixed;
+            min-height: 800px;
+            height: 800px;
+            margin: 0 auto;
+            width: 100%;
+            max-width: 1920px;
+            position: relative;
+        }
+
+            #first article {
+                height: 400px;
+                position: absolute;
+                text-align: center;
+                top: 150px;
+                width: 100%;
+            }
+
+        #second {
+            background: #272b30;
+            min-height: 300px;
+            height: 400px;
+            margin: 0 auto;
+            width: 100%;
+            max-width: 1920px;
+            position: relative;
+            -webkit-box-shadow: 0 0 50px rgba(0,0,0,0.8);
+            box-shadow: 0 0 50px rgba(0,0,0,0.8);
+        }
+
+            #second article {
+                height: 600px;
+                position: absolute;
+                text-align: center;
+                top: 100px;
+                width: 100%;
+            }
+
+        .jumbotron {
+            height: 500px;
+            color: white;
+            text-shadow: #444 0 5px 5px;
+            background: transparent;
+            border: none;
+        }
+
+        .groupColor
     {
         color: #272b30;
     }
-</style>
+    </style>
+    <script>
+        $(document).ready(function () {
+            $('section[data-type="background"]').each(function () {
+                var $bgobj = $(this); // assigning the object
 
+                $(window).scroll(function () {
+                    var yPos = -($window.scrollTop() / $bgobj.data('speed'));
 
-<h1>@ViewBag.Title</h1>
-<br />
+                    // Put together our final background position
+                    var coords = '50% ' + yPos + 'px';
 
-<h4>
-    Being a member has it's perks!
-</h4>
-<br />
-<center>
-    <h5>
-        Here you have the ability to plan ahead and schedule a night out with friends or possibly that special someone... We have implemented an automatic email service to remind you the day before your event as well so you'll never miss a beat! Fill in the options below to get your planning started.
-    </h5>
-</center>
+                    // Move the background
+                    $bgobj.css({ backgroundPosition: coords });
+                });
+            });
+        });
+    </script>
+</head>
+<body>
 
-<br />
+    <section id="first" data-type="background" data-speed="10">
+        <article>
+            <div class="jumbotron">
+                <h1>@ViewBag.Title</h1>
+                <br />
 
-@using (Html.BeginForm("Index", "PlanAhead", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-{
-    @Html.AntiForgeryToken()
-    <hr />
-    @Html.HiddenFor(m => m.Id);
-        <div class="form-group">
-            @Html.LabelFor(m => m.MKEntertainDate, new { @class = "col-md-2 control-label" })
-            <div class="col-md-10">
-                @Html.EditorFor(m => m.MKEntertainDate, new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.MKEntertainDate)
+                <h3>
+                    Being a member has it's perks! Scroll down.
+                </h3>
+                <br />
+                <center>
+                    <h4>
+                        Here you have the ability to plan ahead and schedule a night out with friends or possibly that special someone... We have implemented an automatic email service to remind you the day before your event as well so you'll never miss a beat! Fill in the options below to get your planning started.
+                    </h4>
+                </center>
             </div>
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(m => m.FoodDrinkChoice, new { @class = "col-md-2 control-label" })
-            <div class="groupColor col-md-10">
-                @Html.DropDownList("FoodDrinkChoice", new SelectList(ViewBag.dealsList), " Food/Drink Location ")
-            </div>
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(m => m.EntertainmentChoice, new { @class = "col-md-2 control-label" })
-            <div class="groupColor col-md-10">
-                @Html.DropDownList("EntertainmentChoice", new SelectList(ViewBag.entertainmentList), " Entertainment Location ")
-            </div>
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(m => m.Description, new { @class = "col-md-2 control-label" })
-            <div class="col-md-10">
-                @Html.TextBoxFor(m => m.Description, new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.Description)
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" class="btn btn-default " value="Submit" />
-            </div>
-        </div>
-}
+        </article>
+    </section>
 
+    <section id="second" data-type="background" data-speed="10">
+                <div>
+                    <br />
+                    <br />
+                    <br />
+                    @using (Html.BeginForm("Index", "PlanAhead", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <hr />
+                        @Html.HiddenFor(m => m.Id);
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.MKEntertainDate, new { @class = "col-md-5 control-label" })
+                            <div class="col-md-7">
+                                @Html.EditorFor(m => m.MKEntertainDate, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.MKEntertainDate)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.FoodDrinkChoice, new { @class = "col-md-5 control-label" })
+                            <div class="groupColor col-md-7">
+                                @Html.DropDownList("FoodDrinkChoice", new SelectList(ViewBag.dealsList), " Food/Drink Location ")
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.EntertainmentChoice, new { @class = "col-md-5 control-label" })
+                            <div class="groupColor col-md-7">
+                                @Html.DropDownList("EntertainmentChoice", new SelectList(ViewBag.entertainmentList), " Entertainment Location ")
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Description, new { @class = "col-md-5 control-label" })
+                            <div class="col-md-7">
+                                @Html.TextBoxFor(m => m.Description, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.Description)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-offset-5 col-md-5">
+                                <input type="submit" class="btn btn-default " value="Submit" />
+                            </div>
+                        </div>
+                    }
+                </div>
+    </section>
+
+
+</body>
+</html>
 

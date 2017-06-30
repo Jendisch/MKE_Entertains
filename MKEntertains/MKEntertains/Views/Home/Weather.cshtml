@@ -1,19 +1,105 @@
-﻿
-@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>MKEntertains</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <style>
+        #first {
+            background: url("../../Content/Images/MKELake.jpg") 50% 0 repeat fixed;
+            min-height: 1000px;
+            height: 1000px;
+            margin: 0 auto;
+            width: 100%;
+            max-width: 1920px;
+            position: relative;
+        }
 
-<h1>The Weather Matters.</h1>
-<h4>View the weather to better plan your entertainment choices.</h4>
-<br />
-<div>
-    <center>
-        <a href="https://www.accuweather.com/en/us/new-york-ny/10007/current-weather/349727" class="aw-widget-legal">
-            <!--
-            By accessing and/or using this code snippet, you agree to AccuWeather’s terms and conditions (in English) which can be found at https://www.accuweather.com/en/free-weather-widgets/terms and AccuWeather’s Privacy Statement (in English) which can be found at https://www.accuweather.com/en/privacy.
-            -->
-        </a><div id="awtd1498155165861" class="aw-widget-36hour" data-locationkey="" data-unit="f" data-language="en-us" data-useip="true" data-uid="awtd1498155165861" data-editlocation="true"></div>
-        <script type="text/javascript" src="https://oap.accuweather.com/launch.js"></script>
-    </center>
-</div>
+            #first article {
+                height: 458px;
+                position: absolute;
+                text-align: center;
+                top: 150px;
+                width: 100%;
+            }
+
+        #second {
+            background: #272b30;
+            min-height: 1200px;
+            height: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            max-width: 1920px;
+            position: relative;
+            -webkit-box-shadow: 0 0 50px rgba(0,0,0,0.8);
+            box-shadow: 0 0 50px rgba(0,0,0,0.8);
+        }
+
+            #second article {
+                height: 1200px;
+                position: absolute;
+                text-align: center;
+                top: 150px;
+                width: 100%;
+            }
+
+
+        .jumbotron {
+            height: 500px;
+            color: white;
+            text-shadow: #444 0 5px 5px;
+            background: transparent;
+            border: none;
+        }
+
+        
+    </style>
+    <script>
+        $(document).ready(function () {
+            $('section[data-type="background"]').each(function () {
+                var $bgobj = $(this); // assigning the object
+
+                $(window).scroll(function () {
+                    var yPos = -($window.scrollTop() / $bgobj.data('speed'));
+
+                    // Put together our final background position
+                    var coords = '50% ' + yPos + 'px';
+
+                    // Move the background
+                    $bgobj.css({ backgroundPosition: coords });
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+
+    <section id="first" data-type="background" data-speed="10">
+        <article>
+            <div class="jumbotron">
+                <h1>The Weather Matters.</h1>
+                <h4>View the weather forecast below to better plan your nights out.</h4>
+                <br />
+            </div>
+        </article>
+    </section>
+
+    <section id="second" data-type="background" data-speed="10">
+        <article>
+            <div>
+                <center>
+                    <a href="https://www.accuweather.com/en/us/new-york-ny/10007/current-weather/349727" class="aw-widget-legal">
+                        <!--
+                By accessing and/or using this code snippet, you agree to AccuWeather’s terms and conditions (in English) which can be found at https://www.accuweather.com/en/free-weather-widgets/terms and AccuWeather’s Privacy Statement (in English) which can be found at https://www.accuweather.com/en/privacy.
+                -->
+                    </a><div id="awtd1498155165861" class="aw-widget-36hour" data-locationkey="" data-unit="f" data-language="en-us" data-useip="true" data-uid="awtd1498155165861" data-editlocation="true"></div>
+                    <script type="text/javascript" src="https://oap.accuweather.com/launch.js"></script>
+                </center>
+            </div>
+        </article>
+    </section>
+
+
+</body>
+</html>
+
 

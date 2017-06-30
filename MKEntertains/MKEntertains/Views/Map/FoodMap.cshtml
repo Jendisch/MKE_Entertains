@@ -23,10 +23,20 @@
              padding-top: 30px;*/
     }
 
+    body {
+        background-image: url('../../Content/Images/MKEEngagement.JPG');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-color: #272b30;
+        color: white;
+    }
+
     .homeText {
         color: white;
     }
 </style>
+
+
 
 <div class="homeText">
     <br />
@@ -34,7 +44,7 @@
     <h3>Where to eat or grab a drink on a budget? You Decide.</h3>
     <p>If you'd like to plan ahead and view deals in advance please register & create an account!</p>
     <div align="right">
-        @Html.ActionLink("Toggle To Entertainment Map", "EntertainmentMap", "Map", new { @class = "btn btn-primary" })
+        @Html.ActionLink("Toggle To Entertainment Map", "EntertainmentMap", "Map", new { @class = "btn btn-success" })
     </div>
     <br />
 

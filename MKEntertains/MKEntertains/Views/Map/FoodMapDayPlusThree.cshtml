@@ -23,6 +23,14 @@
              padding-top: 30px;*/
     }
 
+    body {
+        background-image: url('../../Content/Images/MKEEngagement.JPG');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-color: #272b30;
+        color: white;
+    }
+
     .homeText {
         color: white;
     }
@@ -33,7 +41,10 @@
     <h1>Looking ahead to @ViewBag.Title night food/drink specials...</h1>
     <br />
     <div align="left">
-        @Html.ActionLink("Go Back", "MemberFoodMap", "Map", new { @class = "btn btn-primary" })
+        @Html.ActionLink("Go Back", "MemberFoodMap", "Map", new { @class = "btn btn-success" })
+    </div>
+    <div align="right">
+        @Html.ActionLink("Toggle To Entertainment Map", "EntertainmentMapDayPlusThree", "Map", new { @class = "btn btn-success" })
     </div>
     <br />
 

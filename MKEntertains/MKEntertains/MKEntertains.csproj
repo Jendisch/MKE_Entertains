@@ -272,9 +272,12 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Images\MKEBeach.jpg" />
+    <Content Include="Content\Images\MKEBianca.jpg" />
     <Content Include="Content\Images\MKEDemo.jpg" />
     <Content Include="Content\Images\MKEEngagement.JPG" />
+    <Content Include="Content\Images\MKELake.jpg" />
     <Content Include="Content\Images\MKEShoes.jpg" />
+    <Content Include="Content\Images\MKEStage.jpg" />
     <Content Include="Content\Images\Yelp.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
